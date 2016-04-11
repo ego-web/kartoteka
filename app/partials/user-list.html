@@ -1,0 +1,83 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-2">
+      <!--Sidebar content-->
+
+      Search: <input ng-model="query">
+      Sort by:
+      <select ng-model="orderProp">
+        <option value="name">Alphabetical</option>
+        <option value="age">Newest</option>
+      </select>
+
+
+
+    </div>
+    <div class="col-md-10" >
+      <!-- ng-controller="SwitchableGridController" -->
+      <!--switch icons-->
+      <div class="bar">
+        <a class="glyphicon glyphicon-th-list" 
+        ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
+
+        <a class="glyphicon glyphicon-th" 
+        ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>
+
+        <a class="glyphicon glyphicon-th-large" 
+        ng-class="{active: layout == 'trello'}" ng-click="layout = 'trello'"></a>
+      </div>
+
+      <!--Body content-->
+
+      <!--           first view -->      
+      <div ng-show="layout == 'list'" class="list" >
+       <table class="table">
+      <!-- class="table table-hover"   -->
+      <thead>
+          <tr>
+            <th>№</th>
+            <th>name</th>
+            <th>age</th>
+            <th>carrier</th>
+            <th>id</th>
+          </tr>
+        </thead>
+        <tbody>
+        <!-- ng-class-odd="'odd'" ng-class-even="'even'" -->
+        <tr class="active rowcolor" ng-repeat="user in users_list | filter:query | orderBy:orderProp"ng-class-odd="'odd'" ng-class-even="'even'">
+            <td>{{$index+1}}</td>
+             <td>{{user.name}}</td>
+           <td>{{user.age}}</td>
+            <td>{{user.carrier}}</td>
+            <td>{{user.id}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!--           second view -->      
+    <div ng-show="layout == 'grid'" class="grid" >
+      <ul class="users">
+        <li ng-repeat="user in users_list | filter:query | orderBy:orderProp" class="thumbnail">
+
+          <a href="#/users/{{user.id}}" class="thumb"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
+          
+          <a href="#/users/{{user.id}}">{{user.name}}</a>
+          <p>{{user.snippet}}</p>
+        </li>
+      </ul>
+    </div>
+    <!--           third view -->      
+    <div ng-show="layout == 'trello'" class="trello" >
+
+      <li ng-repeat="user in users_list | filter:query | orderBy:orderProp">
+
+        <a href="#/users/{{user.id}}"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
+
+        <a href="#/users/{{user.id}}">{{user.name}}</a>
+      </li>
+
+    </div>
+  </div>
+</div>
+</div>
