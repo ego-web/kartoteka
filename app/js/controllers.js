@@ -4,6 +4,18 @@
 
 var kartotekaControllers = angular.module('kartotekaControllers', []);
 
+kartotekaControllers.controller('SlideController', ['$scope', '$location', function($scope, $location, User){ 
+$scope.goNext = function (hash) { 
+$location.path(hash);
+ };
+}
+ ]);
+
+kartotekaControllers.controller('IntroCtrl', ['$scope', 'User',
+  function($scope, User) {
+    $scope.intro;
+  }]);
+
 kartotekaControllers.controller('UserListCtrl', ['$scope', 'User',
   function($scope, User) {
     $scope.users_list = User.query();

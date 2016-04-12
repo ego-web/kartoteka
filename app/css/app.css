@@ -1,13 +1,40 @@
 /* app css stylesheet */
 
 body {
-  padding-top: 20px;
-}
+/*  padding-top: 20px;
+*/}
 
 .users {
   list-style: none;
 }
+/*------------------
+/*      Intro
+/*------------------
+*/
+.introContainer{
+display: block;
+height: 100vh;
+background-image: url(../img/bg.jpg);
+background-size: cover;
+z-index: 100;
+background-color: #333;
+}
 
+.intro-text{
+display: block;
+height:200px;
+width: 200px;
+margin: 15vh auto;
+/*overflow-wrap: 10px;*/
+}
+.intro-img{
+margin-left: -50%;
+}
+
+/*------------------
+/*      User list
+/*------------------
+*/
 .thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;

@@ -1,11 +1,24 @@
 {
-  "name": "title",
+  "name": "kartoteka",
   "version": "1.0.0",
-  "description": "",
+  "description": "> Как установить мой проект",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "ego",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ego-web/kartoteka.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ego-web/kartoteka/issues"
+  },
+  "homepage": "https://github.com/ego-web/kartoteka#readme",
+  "devDependencies": {
+    "bower": "^1.7.9",
+    "browser-sync": "^2.12.1",
+    "gulp": "^3.9.1"
+  }
 }
