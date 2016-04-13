@@ -19,7 +19,7 @@ gulp.task('server', function () {
 gulp.task('watch', function(){
   // gulp.watch('src/**/*.less', ['less']);
   gulp.watch([
-    'app/*.html',
+    'app/**/*.html',
     'app/css/**/*.css',
     'app/user_photo/**/*.json',
     'app/js/**/*.js'

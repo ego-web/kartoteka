@@ -12,7 +12,7 @@ var kartotekaApp = angular.module('kartotekaApp', [
 kartotekaApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
-      when('/intro', {
+      when('/', {
         templateUrl: 'partials/intro.html',
         controller: 'IntroCtrl'
       }).
@@ -25,6 +25,6 @@ kartotekaApp.config(['$routeProvider',
         controller: 'UserDetailCtrl'
       }).
       otherwise({
-        redirectTo: '/users' 
+        redirectTo: '/' 
       });
   }]);

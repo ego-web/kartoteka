@@ -1,39 +1,38 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2">
-      <!--Sidebar content-->
-
-      Search: <input ng-model="query">
-      Sort by:
-      <select ng-model="orderProp">
+    <!--Sidebar content-->
+    <div class="searchForm">
+      <div class="searchForm--form">
+        <span>Search:</span>
+        <input ng-model="query">
+      </div>
+      <div class="searchForm--form">
+       <span>Sort by:</span>
+       <select ng-model="orderProp">
         <option value="name">Alphabetical</option>
         <option value="age">Newest</option>
       </select>
-
-
-
     </div>
-    <div class="col-md-10" >
-      <!-- ng-controller="SwitchableGridController" -->
-      <!--switch icons-->
-      <div class="bar">
-        <a class="glyphicon glyphicon-th-list" 
-        ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
+    <!-- ng-controller="SwitchableGridController" -->
+    <!--switch icons-->
+    <div class="bar " >
+      <a class="glyphicon glyphicon-th-list" 
+      ng-class="{active: layout == 'list'}" ng-click="layout = 'list'"></a>
+      <a class="glyphicon glyphicon-th" 
+      ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>
+      <a class="glyphicon glyphicon-th-large" 
+      ng-class="{active: layout == 'trello'}" ng-click="layout = 'trello'"></a>
+    </div>
 
-        <a class="glyphicon glyphicon-th" 
-        ng-class="{active: layout == 'grid'}" ng-click="layout = 'grid'"></a>
+  </div>
 
-        <a class="glyphicon glyphicon-th-large" 
-        ng-class="{active: layout == 'trello'}" ng-click="layout = 'trello'"></a>
-      </div>
 
-      <!--Body content-->
-
-      <!--           first view -->      
-      <div ng-show="layout == 'list'" class="list" >
-       <table class="table">
-      <!-- class="table table-hover"   -->
-      <thead>
+  <!--Body content-->
+  <div class="viewContent col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+    <!--           first view -->      
+    <div ng-show="layout == 'list'" class="list" >
+      <table class="table table-striped  table-hover">
+        <thead>
           <tr>
             <th>№</th>
             <th>name</th>
@@ -43,11 +42,10 @@
           </tr>
         </thead>
         <tbody>
-        <!-- ng-class-odd="'odd'" ng-class-even="'even'" -->
-        <tr class="active rowcolor" ng-repeat="user in users_list | filter:query | orderBy:orderProp"ng-class-odd="'odd'" ng-class-even="'even'">
+          <tr ng-repeat="user in users_list | filter:query | orderBy:orderProp">
             <td>{{$index+1}}</td>
-             <td>{{user.name}}</td>
-           <td>{{user.age}}</td>
+            <td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
+            <td>{{user.age}}</td>
             <td>{{user.carrier}}</td>
             <td>{{user.id}}</td>
           </tr>
@@ -56,27 +54,26 @@
     </div>
 
     <!--           second view -->      
-    <div ng-show="layout == 'grid'" class="grid" >
-      <ul class="users">
-        <li ng-repeat="user in users_list | filter:query | orderBy:orderProp" class="thumbnail">
+    <div ng-show="layout == 'grid'" class="grid users" >
+      <ul>
+        <li ng-repeat="user in users_list | filter:query | orderBy:orderProp" class="thumbnail"><a href="#/users/{{user.id}}" class="thumb"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
 
-          <a href="#/users/{{user.id}}" class="thumb"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
-          
-          <a href="#/users/{{user.id}}">{{user.name}}</a>
+          <p><a href="#/users/{{user.id}}">{{user.name}}</a></p>
+
           <p>{{user.snippet}}</p>
+
         </li>
       </ul>
     </div>
     <!--           third view -->      
     <div ng-show="layout == 'trello'" class="trello" >
-
-      <li ng-repeat="user in users_list | filter:query | orderBy:orderProp">
-
-        <a href="#/users/{{user.id}}"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
-
-        <a href="#/users/{{user.id}}">{{user.name}}</a>
+      <ul>
+      <li ng-repeat="user in users_list | filter:query | orderBy:orderProp"><a href="#/users/{{user.id}}"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
+        <p>
+          <a href="#/users/{{user.id}}">{{user.name}}</a>
+        </p>
       </li>
-
+            </ul>
     </div>
   </div>
 </div>

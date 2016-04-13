@@ -2,15 +2,29 @@
 	
 
 	<div class="intro-text">
-		<div class="intro-img media">
+		<form>
+			<div class="form-group">
+				<label for="exampleInputEmail1">Email</label>
+				<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
+			</div>
+			<div class="form-group">
+				<label for="exampleInputPassword1">Пароль</label>
+				<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+			</div>
+			<div class="form-group"> 
+			<a class="btn btn-default" href="#/users" role="button">Authorization</a>
+		</div>
+		</form>
+
+		<!-- <div class="intro-img media">
 			<img src="../img/user_photo/dell-venue.0.jpg" alt="intro" class="media-object">
-		</div>		
+		</div>		 -->
 
 		<span class="intro-text-txt">Для того чтобы получить доступ к картотеке, необходимо авторизоваться!</span>
 
-		<button type="button" class="intro-text--but navbar-btn" ng-click="goNext('/users')">
-			Authorization 
-		</button>
+<!-- 		<button type="button" class="intro-text--but navbar-btn" ng-click="goNext('/users')">
+ 		</button>
+ 	-->			 
 
-	</div>
+ </div>
 </div>
