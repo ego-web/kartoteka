@@ -20,14 +20,21 @@ kartotekaControllers.controller('UserListCtrl', ['$scope', 'User',
   function($scope, User) {
     $scope.users_list = User.query();
     $scope.orderProp = 'age';
-    $scope.layout = 'trello';
+    $scope.layout ="grid";
+    $scope.imageUrl ="../img/user_photo/u3.jpg";
+    $scope.users_group = ["manager", "designer","programmer", "other_staff"]
+
+
+// $scope.setLayout = function(layout) {
+//       $scope.layout = layout;
+//       if(!layout){layout = "list"}
+//        alert("layout "+layout);
+//     };
+
   }]);
 
 kartotekaControllers.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
   function($scope, $routeParams, User) {
-   $scope.imageUrl;
-   $scope.imageUrl ="img/user_photo/u3.jpg";
-      alert("userId");
     $scope.user = User.get({userId: $routeParams.userId}, function(user) {
       $scope.mainImageUrl = user.images[0];
     });

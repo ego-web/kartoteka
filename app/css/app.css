@@ -4,6 +4,10 @@
 body {
 }
 
+p {
+word-wrap: break-word;
+/*overflow-wrap: inherit;*/
+}
 .mainContainer {
   padding: 0;
   margin: 0;
@@ -40,6 +44,46 @@ body {
 /*      User list
 /*------------------
 */
+.grid{
+  width: 100%;
+  display: inline-block;
+  position: relative;
+
+}
+.grid ul{
+  display: inline-block;
+  position: relative;
+
+}
+
+.grid li{
+  width: 200px;
+  display: block;
+  position: relative;
+  /*vertical-align: top;
+  margin: 0 1em 1em 0;
+  padding: 1em;*/
+
+    /*clear: both;*/
+  /*width: 100%;*/
+  /*min-height: 115px;*/
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+  margin-bottom: 10px;
+  /*margin-left: -40px;*/
+
+}
+.grid a.thumb{
+  height: 55px;
+  width: 55px;
+  margin-bottom: 0px;
+}
+
+.grid span{
+  margin-left: 20px;
+}
+
 .thumb {
   float: left;
   margin: -0.5em 1em 1.5em 0;
@@ -47,17 +91,30 @@ body {
   height: 100px;
   width: 100px;
 }
+.checkbox{
+  float: left;
+  margin-top: -1px;
+}
+/*.user_config{
+  font-size: 16px;
+  float: right;
+margin: -3px;
+}
+.user_config_grid{
+ font-size: 16px;
+  float: right;
+margin: -20px;}*/
 
-.users li {
+/* .users li {
   clear: both;
-  /*width: 100%;*/
+  width: 100%;
   min-height: 115px;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
   margin-bottom: 0;
   margin-left: -40px;
-}
+} */
 
 .users li:before {
  cursor:  pointer;
@@ -162,6 +219,7 @@ a:hover{
 }
 .viewContent{
 }
+
 /*------------------
 /*      Header nav
 /*------------------
@@ -191,12 +249,13 @@ a:hover{
 .bar {
   display: inline-block;
   min-width: 90px;
+    font-size: 24px;
+
 }
 .bar >a{
 }
 .glyphicon{
   top: 6px ; 
-  font-size: 24px;
   padding: 3px 0 0 1px;
   margin-right: 10px;
   color: #12364a;
@@ -208,6 +267,7 @@ a:hover{
 /*      Trello view
 /*------------------
 */
+
 
 .trello li{
   display: inline-block;
@@ -241,8 +301,10 @@ a:hover{
   cursor:  pointer;
   content: '\A';
   position: absolute;
-  width: 100%; height:100%;
-  top:0; left:0;
+  width: 100%; 
+  height:100%;
+  top:0; 
+  left:0;
   background:rgba(200,200,200,0.1);
   opacity: 0;
 /*    transition: all 0.1s;
