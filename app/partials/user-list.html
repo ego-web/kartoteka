@@ -34,20 +34,31 @@
       <table class="table table-striped  table-hover">
         <thead>
           <tr>
+            <th> </th>
             <th>№</th>
-            <th>name</th>
-            <th>age</th>
-            <th>carrier</th>
-            <th>id</th>
+            <th>Фамилия</th>
+            <th>Имя</th>
+            <th>Должность</th>
+            <th>Возвраст</th>
+            <th>Группа</th>
+            <th>Телефон</th>
+            <th>E-mail</th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="user in users_list | filter:query | orderBy:orderProp">
-            <td>{{$index+1}}</td>
+          <td class="checkbox">
+      <input type="checkbox">
+          </td>
+            <!-- <td>{{$index+1}}</td> -->
+            <td>{{user.num}}</td>  
+            <td><a href="#/users/{{user.id}}">{{user.surname}}</a></td>
             <td><a href="#/users/{{user.id}}">{{user.name}}</a></td>
+            <td>{{user.position}}</td>
             <td>{{user.age}}</td>
-            <td>{{user.carrier}}</td>
-            <td>{{user.id}}</td>
+            <td>{{user.group}}</td>
+            <td>{{user.phone}}</td>
+            <td>{{user.email}}</td>
           </tr>
         </tbody>
       </table>
@@ -68,9 +79,10 @@
     <!--           third view -->      
     <div ng-show="layout == 'trello'" class="trello" >
       <ul>
-      <li ng-repeat="user in users_list | filter:query | orderBy:orderProp"><a href="#/users/{{user.id}}"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a>
+      <li ng-repeat="user in users_list | filter:query | orderBy:orderProp">
+      <!-- <a href="#/users/{{user.id}}"><img ng-src="{{user.imageUrl}}" alt="{{user.name}}"></a> -->
         <p>
-          <a href="#/users/{{user.id}}">{{user.name}}</a>
+          <a href="#/users/{{user.num}}">{{user.name}}</a>
         </p>
       </li>
             </ul>

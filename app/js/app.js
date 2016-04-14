@@ -20,7 +20,7 @@ kartotekaApp.config(['$routeProvider',
         templateUrl: 'partials/user-list.html',
         controller: 'UserListCtrl'
       }).
-      when('/users/:userId', {//user_photo
+      when('/users/:userId', {
         templateUrl: 'partials/user-detail.html',
         controller: 'UserDetailCtrl'
       }).

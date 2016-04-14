@@ -12,7 +12,6 @@ body {
   background-size: 12px 12px;
 }
 
-
 .users {
   list-style: none;
 
@@ -61,6 +60,17 @@ body {
 }
 
 .users li:before {
+ cursor:  pointer;
+ content: ' ';
+ position: absolute;
+ width: 100%; 
+ min-height: 115px;
+ margin: -10px 0px 0px -10px;
+ background:rgba(150,150,200,0.1);
+}
+
+.users li:hover:before {
+  display: none;
  cursor:  pointer;
  content: ' ';
  position: absolute;
@@ -227,6 +237,7 @@ a:hover{
 -webkit-transition: all 1s;*/
 }
 .trello li:hover:before {
+  display: none;
   cursor:  pointer;
   content: '\A';
   position: absolute;

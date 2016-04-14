@@ -4,12 +4,12 @@
 
 var kartotekaControllers = angular.module('kartotekaControllers', []);
 
-kartotekaControllers.controller('SlideController', ['$scope', '$location', function($scope, $location, User){ 
+/*kartotekaControllers.controller('SlideController', ['$scope', '$location', function($scope, $location, User){ 
 $scope.goNext = function (hash) { 
 $location.path(hash);
  };
 }
- ]);
+ ]);*/
 
 kartotekaControllers.controller('IntroCtrl', ['$scope', 'User',
   function($scope, User) {
@@ -25,6 +25,9 @@ kartotekaControllers.controller('UserListCtrl', ['$scope', 'User',
 
 kartotekaControllers.controller('UserDetailCtrl', ['$scope', '$routeParams', 'User',
   function($scope, $routeParams, User) {
+   $scope.imageUrl;
+   $scope.imageUrl ="img/user_photo/u3.jpg";
+      alert("userId");
     $scope.user = User.get({userId: $routeParams.userId}, function(user) {
       $scope.mainImageUrl = user.images[0];
     });
