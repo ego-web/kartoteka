@@ -1,0 +1,38 @@
+<div class="container-fluid">
+  <div class="row">
+
+
+  <!--Body content-->
+  <div class="viewContent ">
+  <div class="viewContent--wrapper ">
+
+  <!--           third view -->      
+  <div data-ng-show="layout == 'trello'" class="trello" >
+    <ul>
+      <li data-ng-repeat="user in ::users_list track by user.id | filter:query | orderBy:orderProp">
+
+       <div class="checkbox"><input type="checkbox"/></div>
+
+       <div>
+        <a href="#" class="thumb">
+          <img data-ng-src="{{imageUrl}}" alt="{{user.name}} +{{user.surname}}">
+        </a><br>
+        <p><a href="#/users/{{user.id}}" data-ng-bind-template="{{user.name }} {{user.surname}}, возраст: {{user.age}}"></a></p>
+        <p data-ng-bind-template="{{user.position}}, в группе: {{user.group}}"></p>
+        <span><a href='tel:ng-bind ="user.phone"' data-ng-bind="user.phone"></a></span>
+        <br>
+        <p><a href="mailto:ng-bind ='user.email'"ng-bind="user.email"></a></p>
+      </div>
+
+        <!-- <a href class="user_config_grid glyphicon glyphicon-cog">
+      </a> -->
+
+    </li>
+  </ul>
+</div>
+
+
+</div>
+</div>
+</div>
+</div>

@@ -48,12 +48,12 @@ word-wrap: break-word;
   width: 100%;
   display: inline-block;
   position: relative;
-
+  /*margin-left: 70px*/
 }
 .grid ul{
   display: inline-block;
   position: relative;
-
+margin-left: -25px;
 }
 
 .grid li{
@@ -127,7 +127,7 @@ margin: -20px;}*/
 }
 
 .users li:hover:before {
-  display: none;
+display: none;
  cursor:  pointer;
  content: ' ';
  position: absolute;
@@ -143,7 +143,7 @@ border: 2px solid ##CBD3D7;
 }
 */
 /** Detail View **/
-img.phone {
+/* img.phone {
   float: left;
   border: 1px solid black;
   margin-right: 3em;
@@ -175,8 +175,8 @@ ul.user-thumbs img {
 ul.user-thumbs img:hover {
   cursor: pointer;
 }
-
-
+ */
+/* 
 ul.specs {
   clear: both;
   margin: 0;
@@ -198,7 +198,7 @@ ul.specs > li > span{
 ul.specs dt {
   font-weight: bold;
 }
-
+ */
 h1 {
   border-bottom: 1px solid gray;
 }
@@ -218,6 +218,15 @@ a:hover{
   border-radius: 4px;
 }
 .viewContent{
+ width: 100%;
+  display: block;
+}
+.viewContent--wrapper {
+  position: relative;
+  margin: 0 auto;
+  display: block;
+  max-width: 1200px;
+
 }
 
 /*------------------
@@ -230,7 +239,11 @@ a:hover{
   display: block;
   margin-bottom: 20px;
   background: #E7E7E4;
-  padding-left: 20px
+  padding: 10px
+}
+.searchForm--wrapper{
+max-width: 800px;
+margin: 0 auto;
 }
 .searchForm--form{
   display: inline-block;
@@ -241,7 +254,7 @@ a:hover{
 }
 
 .searchForm>div>input, .searchForm>div>select{
-  margin: 0 20px 20px 0;
+  /*margin: 0 20px 20px 0;*/
   display: inline-block;
   color: #333;
   line-height: 1;
@@ -249,16 +262,23 @@ a:hover{
 .bar {
   display: inline-block;
   min-width: 90px;
-    font-size: 24px;
+  font-size: 24px;
+  color: #428bca;
 
 }
+.bar_right{
+  float: right;
+}
 .bar >a{
+  cursor: pointer;
 }
 .glyphicon{
   top: 6px ; 
   padding: 3px 0 0 1px;
   margin-right: 10px;
-  color: #12364a;
+}
+.glyphicon-remove{
+    color: red;
 }
 .glyphicon.active{
   color:#fff;
@@ -268,15 +288,18 @@ a:hover{
 /*------------------
 */
 
+.trello{
+  /*margin-left: 70px*/
 
+}
 .trello li{
   display: inline-block;
   position: relative;
   vertical-align: top;
   background-color: #fff;
   margin: 0 1em 1em 0;
-  padding: 1em;
-  width: 120px;
+  padding: 1.5em;
+  width: 150px;
   /*border: 1px solid #CBD3D7;*/
   list-style-type: none;
   border-radius: 4px;
