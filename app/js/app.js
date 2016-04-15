@@ -20,10 +20,6 @@ kartotekaApp.config(['$routeProvider',
         templateUrl: 'partials/user-list.html',
         controller: 'UserListCtrl'
       }).
-/*      when('/users/:userId', {
-        templateUrl: 'partials/user-detail.html',
-        controller: 'UserDetailCtrl'
-      }).*/
       otherwise({
         redirectTo: '/' 
       });
