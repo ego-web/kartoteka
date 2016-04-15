@@ -13,17 +13,17 @@ kartotekaApp.config(['$routeProvider',
   function($routeProvider) {
     $routeProvider.
       when('/', {
-        templateUrl: 'partials/intro.html',
-        controller: 'IntroCtrl'
+        templateUrl: 'partials/intro.html'
+        // controller: 'IntroCtrl'
       }).
       when('/users', {
         templateUrl: 'partials/user-list.html',
         controller: 'UserListCtrl'
       }).
-      when('/users/:userId', {
+/*      when('/users/:userId', {
         templateUrl: 'partials/user-detail.html',
         controller: 'UserDetailCtrl'
-      }).
+      }).*/
       otherwise({
         redirectTo: '/' 
       });
