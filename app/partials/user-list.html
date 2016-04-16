@@ -2,18 +2,18 @@
   <div class="row">
     <!--Sidebar content-->
     <div class="searchForm">
-      <div class="searchForm--wrapper">
+      <div class="searchForm--wrapper clearfix">
 
         <div class="searchForm--form">
-          <span>Search:</span>
-          <input data-ng-model="query" data-ng-model-options="{debounce: 150}">
+          <!-- <span>Search:</span> -->
+          <input data-ng-model="query" class="form-control" data-ng-model-options="{debounce: 150}" placeholder="Search">
         </div>
 
-        <a class="glyphicon glyphicon-option-vertical"></a>
+        <!-- <a class="glyphicon glyphicon-option-vertical"></a> -->
 
         <div class="searchForm--form">
-         <span>Sort by:</span>
-         <select data-ng-model="orderProp">
+         <!-- <span>Sort by:</span> -->
+         <select data-ng-model="orderProp" class="form-control">
           <option value="id">id</option>
           <option value="surname">surname</option>
           <option value="name">name</option>
@@ -22,7 +22,7 @@
         </select>
       </div>
 
-      <a class="glyphicon glyphicon-option-vertical"></a>
+      <!-- <a class="glyphicon glyphicon-option-vertical"></a> -->
       <div class="bar" >
         <a class="glyphicon glyphicon-th-list" 
         data-ng-class="{active: layout == 'list' }" data-ng-click="layout = 'list'"></a>
@@ -33,7 +33,7 @@
       </div>
 
       <div class="bar bar_right">
-        <a class="glyphicon glyphicon-option-vertical"></a>
+        <!-- <a class="glyphicon glyphicon-option-vertical"></a> -->
         <!-- <button class="btn btn-primary" data-toggle="modal" data-target=".bs-example-modal-sm">Малая модаль</button> -->
 
         <a class="glyphicon glyphicon-plus"  data-toggle="modal" data-target=".bs-example-modal-sm"></a>
@@ -42,7 +42,7 @@
         
         <a class="glyphicon glyphicon-remove" data-toggle="tooltip" data-placement="bottom" title="Удалить персону"></a>
         
-        <a class="glyphicon glyphicon-option-vertical"></a>
+        <!-- <a class="glyphicon glyphicon-option-vertical"></a> -->
         
         <a class="glyphicon glyphicon-plus-sign" data-toggle="tooltip" data-placement="bottom" title="Добавить группу"></a>
       </div>
@@ -55,7 +55,7 @@
     <div class="viewContent--wrapper ">
       <!--           first view -->      
       <div data-ng-if="layout == 'list'" class="list" >
-        <table class="table table-striped  table-hover ">
+        <table class="table table-striped  table-hover table-bordered  focus-on">
           <thead>
             <tr>
               <th>/</th>
@@ -90,12 +90,12 @@
       <div data-ng-if="layout == 'grid'" class="grid users">
 
         <ul data-ng-repeat="group in users_group">
-
+          <div class="fonGroup">
           <li class="btn btn-primary">
            <span data-ng-bind="group"></span>
-           <span class="badge" data-ng-bind="out.length">"</span>
          </li>
          <li class="thumbnail"  data-ng-repeat="user in users_list| group:group | filter:query | orderBy:orderProp" >
+           <!-- <span class="badge" data-ng-bind="out.length">Group:{{group.length}}</span> -->
 
           <div class="checkbox">
             <input type="checkbox"/>
@@ -106,14 +106,18 @@
               <img data-ng-src="{{imageUrl}}" alt="{{user.name}} +{{user.surname}}">
             </a>
 
-            <p><a href="#" data-ng-bind-template="{{user.name}} {{user.surname}}">
+            <p><a href="#" data-ng-bind-template="{{user.name}}">
+            </a><br>
+            <a href="#" data-ng-bind-template="{{user.surname}}">
             </a></p>
-
+<p>
             <span data-ng-bind-template="{{user.position}},"></span><br> 
             <span data-ng-bind-template="в группе: {{user.group}}"></span>
+          </p>
           </div >
 
         </li>
+        </div>
       </ul>
 
     </div>
@@ -127,9 +131,12 @@
          <div>
           <a href="#" class="thumb">
             <img data-ng-src="{{imageUrl}}" alt="{{user.name}} +{{user.surname}}">
+             <!-- class="img-circle" -->
           </a><br>
           <p><a href="#" data-ng-bind-template="{{user.name }} {{user.surname}}, возраст: {{user.age}}"></a></p>
+          <div class="user_position">
           <p data-ng-bind-template="{{user.position}}, в группе: {{user.group}}"></p>
+          </div>
           <span><a href='tel:ng-bind ="user.phone"' data-ng-bind="user.phone"></a></span>
           <br>
           <p><a href="mailto:ng-bind ='user.email'"ng-bind="user.email"></a></p>
@@ -154,19 +161,19 @@
         <div class="modal-body">
          <div class="form-group">
           <label for="Name">Имя</label>
-          <input type="text" class="form-control" id="name" placeholder="Enter name" value="1">
+          <input type="text" class="form-control" id="name" placeholder="Enter name" value="">
         </div>
         <div class="form-group">
           <label for="exampleInputEmail1">Email</label>
-          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="2">
+          <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email" value="">
         </div> 
         <div class="form-group">
           <label for="Phone">Phone</label>
-          <input type="Phone" class="form-control" id="Phone" placeholder="Enter Phone" value="3">
+          <input type="Phone" class="form-control" id="Phone" placeholder="Enter Phone" value="">
         </div>
         <div class="form-group">
 
-          <select class="form-control" value="4">
+          <select class="form-control" value="">
             <option data-ng-repeat="group in users_group">{{group}}</option>
           </select>
         </div>
