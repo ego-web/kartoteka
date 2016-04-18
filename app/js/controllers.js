@@ -20,15 +20,49 @@ kartotekaControllers.controller('UserListCtrl', ['$scope', 'User', /*'Data',*/
     $scope.users_group = ["Manager", "Designer","Programmer", "Tester", "Other staff"];
   }]);
 
+/*kartotekaControllers.controller('AnswerController', 
+    function AnswerController($scope){
+        $scope.save = function (answer, answerForm){
+            if(answerForm.$valid){
+                // действия по сохранению
+                alert(answer.author + ", ваш ответ сохранен");
+            }
+        };
+})*/
+
+
 kartotekaControllers.controller('AddPostCtrl', ['$scope', '$firebase', function($scope, $firebase) {
 
+var firebaseObj = new Firebase("https://incandescent-heat-1602.firebaseio.com");
+
+($scope.ReadPost = function() {
+firebaseObj.on("child_added", function(snap, prevChildKey) {
+  var newPost = snap.val();
+  var num = snap.key();
+  // n= parseFloat(n)
+   // console.log("key: " + n);
+ // console.log(typeof(n));
+var name = newPost.name;
+var email = newPost.email;
+var phone = newPost.phone;
+var group = newPost.group; 
+
+  console.log("id: " +  Object.keys(snap.val()).length);
+  console.log("name: " + name);
+  console.log("group: " + group);
+  console.log("Previous Post ID: " + prevChildKey);
+}, function (errorObject) {
+  console.log("The read failed: " + errorObject.code);
+});
+})();
+
     $scope.AddPost = function() {
+var length = $scope.users_list;
 var name = $scope.article.name;
 var email = $scope.article.email;
 var phone = $scope.article.phone;
 var group = $scope.article.group;  
     
-var firebaseObj = new Firebase("https://incandescent-heat-1602.firebaseio.com");
 
 firebaseObj.set({
   "301":{
