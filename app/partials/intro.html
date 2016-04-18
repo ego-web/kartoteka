@@ -49,7 +49,8 @@
 								<span class="glyphicon form-control-feedback"></span>
 							</div>
 						</div>
-					<span>* Для доступа к картотеке, необходимо заполнить все поля!</span>
+					<span ng-show="user.anonim===false">* Для доступа к картотеке, необходимо заполнить все поля! Либо зайдите анонимно.</span>
+					
 					</form>
 				</div>
 				<!-- Нижняя часть модального окна -->
@@ -57,9 +58,7 @@
 					
 					<input ng-model="user.anonim" type="checkbox" class="checkbox"/>
 					<p class="pull-left"> Войти анонимно</p>
-					<a class="btn btn-primary"  role="button" ng-click="SignIn($event)">Войти</a>
-					<!-- href="#/users" -->
-					<!-- <button id="save" type="button" class="btn btn-primary">Войти</button> -->
+					<a class="btn btn-primary"  role="button" ng-click="SignIn($event)">Войти </a>
 				</div>
 			</div>
 		</div>

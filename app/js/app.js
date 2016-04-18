@@ -15,7 +15,7 @@ kartotekaApp.config(['$routeProvider',
     $routeProvider.
       when('/', {
         templateUrl: 'partials/intro.html',
-         controller: 'HomeCtrl'
+         controller: 'AuthCtrl'
       }).
       when('/users', {
         templateUrl: 'partials/user-list.html',
@@ -24,4 +24,5 @@ kartotekaApp.config(['$routeProvider',
       otherwise({
         redirectTo: '/' 
       });
+      // $locationProvider.hashPrefix('!');
   }]);
