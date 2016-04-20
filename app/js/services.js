@@ -12,9 +12,7 @@ kartotekaServices.factory('User', ['$resource',
       toggle: {method:'GET', params:{action:'toggle'}} ,*/
       query: {method:'GET', isArray:true}
     });
-
   }
-
    ]);
 
 /* kartotekaServices.factory('Data', function($resource){
